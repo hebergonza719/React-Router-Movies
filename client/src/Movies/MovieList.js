@@ -29,26 +29,42 @@ const MovieList = props => {
     <div className="movie-list">
       {/* this is calling the function below "MovieDetails" while sending props */}
       {movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+        // <MovieDetails key={movie.id} movie={movie} />
+        <Link to={`/movies/${movie.id}`}>
+          <MovieCard movie={movie}/>
+        </Link>
       ))}
     </div>
   );
 }
-// this function is receiving movie and movie.id from MovieList.js
+
+// All this code below is not being used. It was once, but it was redundant
+
+// this function is receiving movie and movie.id from component MovieList in MovieList.js
 // main component is capitalized, nested ones are camelcased
-function MovieDetails({ movie }) {
+
+// function MovieDetails({ movie }) {
+
   // these variables are being declared part of the prop named "movie"
   // like movie.title, movie.director, movie.metascore
-  const { title, director, metascore, stars, id } = movie;
-  return (
+
+  // const { id } = movie;
+  // return (
+
     // movie.id comes from Key={movie.id} from Movielist
     // then I added id as an item inside object since it's  part of movie and renamed it
     // below just as id 
     // Before it was --> <Link to={`/movies/${movie.id}`}>
-    <Link to={`/movies/${id}`}>
-      <MovieCard movie={movie}/>
-    </Link> // this link sends you to Movie.js for each individual movie
-  );
-}
+    
+    
+    // <Link to={`/movies/${id}`}>
+    //   <MovieCard movie={movie}/>
+    // </Link> 
+    
+    // this link sends you to Movie.js for each individual movie
+
+
+//   );
+// }
 
 export default MovieList;

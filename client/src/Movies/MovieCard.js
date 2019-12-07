@@ -1,5 +1,6 @@
 import React from 'react';
 
+// this is getting props from either movie.js or movielist.js
 const MovieCard = ({ movie }) => {
   const { title, director, metascore, stars } = movie;
   return (
