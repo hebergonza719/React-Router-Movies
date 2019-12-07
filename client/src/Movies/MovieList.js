@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import MovieCard from './MovieCard';
 
 // these props come from <route> from App.js
 const MovieList = props => {
@@ -45,22 +46,7 @@ function MovieDetails({ movie }) {
     // below just as id 
     // Before it was --> <Link to={`/movies/${movie.id}`}>
     <Link to={`/movies/${id}`}>
-      <div className="movie-card">
-        <h2>{title}</h2>
-        <div className="movie-director">
-          Director: <em>{director}</em>
-        </div>
-        <div className="movie-metascore">
-          Metascore: <strong>{metascore}</strong>
-        </div>
-        <h3>Actors</h3>
-
-        {stars.map(star => (
-          <div key={star} className="movie-star">
-            {star}
-          </div>
-        ))}
-      </div>
+      <MovieCard movie={movie}/>
     </Link> // this link sends you to Movie.js for each individual movie
   );
 }
