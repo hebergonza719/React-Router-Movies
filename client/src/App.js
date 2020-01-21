@@ -15,7 +15,15 @@ const App = () => {
     <div>
       <SavedList list={savedList} />
       <Route exact path="/" component={MovieList} />
-      <Route path="/movies/:id" component={Movie} />
+      {/* <Route path="/movies/:id" component={Movie} /> */}
+      {/* instead of using component, use render */}
+      {/* render has props and an anonymous function */}
+      <Route
+        path="/movies/:id"
+        // {...props} sends id 
+        // addToSavedList={addToSavedList} are connected, sending component to Movie
+        render={props => <Movie addToSavedList={addToSavedList} {...props} />}
+      />
     </div>
   );
 };
